@@ -1,0 +1,37 @@
+How to Automate Your Bug Bounties
+TL;DR- Automation is becoming increasingly popular, now that computers and robots can do nearly everything a human can do. With a little practice, of course.
+
+
+Introduction
+As a bug bounty hunter, one of the most important skills you can have is the ability to effectively scan websites for vulnerabilities. This involves using a variety of tools and techniques to identify potential weaknesses in a website’s security, and then reporting these findings to the appropriate party so they can be fixed.
+
+The first step in scanning a website for vulnerabilities is to gather as much information about the target as possible. This can include the web server software and version, any plugins or libraries that are being used, and any known vulnerabilities associated with these technologies.
+
+OSINT, or Open Source Intelligence, can help you determine what’s really going on behind the scenes, and if there’s anything for you to exploit. Check out this guide if you’re unfamiliar with the topic, or need a refresher →
+
+Automation
+It can be incredibly helpful to automate this process, saving you time and energy that you could spend on other website functionalities, discovering even more bugs.
+
+To gather information about a target website, you can use a tool like nmap to perform a port scan. The following nmap command can be used to scan a website through ports 1 to 65535.
+
+nmap -p 1-65535 <website>
+Once you have this information, you can use a vulnerability scanner like nessus to identify known vulnerabilities in the website's software. This can be done with the following command:
+
+nessus <website>
+Additionally, you might want to use a web application scanner like w3af to identify vulnerabilities in the web application itself. Here’s a command to run a basic scan using this tool:
+
+w3af <website>
+To automate these scanning processes, you can use a scripting language like Python. The following Python script uses the requests library to send a HTTP GET request to a website, and then prints the response:
+
+import requests
+response = requests.get("http://<website>")
+print(response.text)
+It’s a very simple script to check a website’s status, but I also wrote my own bug hunting script in Bash that actually works pretty well →
+
+Why does this matter?
+Once you have identified potential vulnerabilities in a website, you’ll want to report them to the appropriate party in a clear and concise manner. This typically involves providing detailed information about the vulnerability, including how it can be exploited and any potential consequences if it isn’t fixed.
+
+Remember, the more significant the consequences, the higher the bounty. Plus, if your bug bounty report is professional and easy to recreate, you might even get a larger reward! Here are a few helpful tips if you’re not familiar with bug reports →
+
+Overall, scanning websites for vulnerabilities is a crucial skill for any bug bounty hunter. Automating the process can save you time and increase your bounties, in case you missed something in your manual test. By researching your target, using the appropriate tools to identify potential vulnerabilities, and reporting these findings in a responsible manner, you can help keep the internet a safer place for everyone.
+
